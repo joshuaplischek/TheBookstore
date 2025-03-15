@@ -17,11 +17,15 @@ function getBookTemplate(i) {
     return/*html*/`
         <div class="bookContainer">
             <div class="titleArea"><p>Titel</p></div>
-            <div><img src="" alt=""></div>
-            <div></div>
-            <div class="write-comment">
+            <div class="line"></div>
+            <div class="image-div"><img src="./img/book_cover.png" alt=""></div>
+            <div class="line"></div>
+            <div class="informations"></div>
+            <div class="line"></div>
+            <div class="comments"></div>
+            <div class="write-comments">
                 <input type="text">
-                <img onclick="" src="" alt="">
+                <img onclick="" src="./img/send.png" alt="">
             </div>
             
 

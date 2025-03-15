@@ -15,6 +15,8 @@ header img{
 }
 
 #content{
+    padding-top: 50px;
+    padding-bottom: 50px;
     width: 100%;
     height: calc(100% - 200px);
     gap: 50px;
@@ -34,6 +36,60 @@ header img{
     height: 600px;
     width: 400px;
     background-color: black;
+}
+
+.line{
+    height: 2px;
+    width: 400px;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+}
+
+.image-div{
+    height: 150px;
+    background-color: #1a1919;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-div img{
+    height: 150px;
+}
+
+.informations{
+    height: 198px;
+    width: 400px;
+    background-color: rgb(0, 0, 0);
+}
+
+.comments{
+    background-color: rgb(0, 0, 0);
+    height: 148px;
+    width: 400px;
+}
+
+.write-comments{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    gap: 20px;
+}
+
+.write-comments img{
+    filter: invert();
+    height: 24px;
+    cursor: pointer;
+}
+
+
+.write-comments input{
+    border-radius: 10px;
+    height: 24px;
+    width: 250px;
+    background-color: #1a1919;
+    color: white;
 }
 
 .titleArea{
