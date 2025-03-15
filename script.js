@@ -4,7 +4,7 @@ function init(){
 }
 
 function renderBooks() {
-    let sliderRef = document.getElementById("book_slider");
+    let sliderRef = document.getElementById("content");
     sliderRef.innerHTML0="";
 
     for (let i = 0; i < books.length; i++) {
@@ -19,9 +19,9 @@ function getBookTemplate(i) {
             <div class="titleArea"><p>Titel</p></div>
             <div><img src="" alt=""></div>
             <div></div>
-            <div>
+            <div class="write-comment">
                 <input type="text">
-                <button onclick=""></button>
+                <img onclick="" src="" alt="">
             </div>
             
 
