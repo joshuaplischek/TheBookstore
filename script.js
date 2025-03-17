@@ -11,19 +11,14 @@ function renderBooks() {
 
     for (let i = 0; i < books.length; i++) {
         contentRef.innerHTML += getBookTemplate(i);
-    }
-    checkLikedBooks()
-}
+        
 
-function likeBook(){
-    
-}
+        let commentsRef = document.getElementById("commentsTable-"+i);
 
-function checkLikedBooks(i) {
-    let likeOrUnlike = document.getElementById("toggelLikes").innerHTML;
-    let likedBook = Object.key(books[i].liked);
-    if (likedBook = true) {
-        likebookTrueOrFlase = likeStatus[0]
+        for (let j = 0; j < books[i].comments.length; j++) {
+            commentsRef.innerHTML += getCommentTemplate(i,j);
+            
+        }
     }
 }
 
@@ -44,7 +39,7 @@ function getBookTemplate(i) {
                         <img src="./img/fav.png" alt="">
                     </div>
                 </div>
-                <table>
+                <table class="infoTbale">
                     <tr>
                         <td>Author</td>
                         <td>:${books[i].author}</td>
@@ -60,7 +55,11 @@ function getBookTemplate(i) {
                 </table>
             </div>
             <div class="line"></div>
-            <div class="comments"></div>
+            <div class="comments">
+                <table class="desgin-Comments-Table" id="commentsTable-${i}">
+
+                </table>
+            </div>
             <div class="write-comments">
                 <input type="text">
                 <img onclick="" src="./img/send.png" alt="">
@@ -70,3 +69,14 @@ function getBookTemplate(i) {
         </div>
     `
 }
+
+function getCommentTemplate(i,j) {
+    return /*html*/`
+        <tr>
+            <td>${books[i].comments[j].username}</td>
+            <td>${books[i].comments[j].comment}</td>
+        </tr>
+    `
+}
+
+    
