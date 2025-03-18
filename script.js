@@ -7,7 +7,7 @@ function init(){
 
 function renderBooks() {
     let contentRef = document.getElementById("content");
-    contentRef.innerHTML0="";
+    contentRef.innerHTML="";
 
     for (let i = 0; i < books.length; i++) {
         contentRef.innerHTML += getBookTemplate(i);
@@ -21,6 +21,9 @@ function renderBooks() {
         }
     }
 }
+
+
+
 
 
 
@@ -61,8 +64,8 @@ function getBookTemplate(i) {
                 </table>
             </div>
             <div class="write-comments">
-                <input type="text">
-                <img onclick="" src="./img/send.png" alt="">
+                <input id="commentsInput-${i}" type="text">
+                <img onclick="sendComment(${i})" src="./img/send.png" alt="">
             </div>
             
 
@@ -79,4 +82,18 @@ function getCommentTemplate(i,j) {
     `
 }
 
+function sendComment(i) {
+    let commentsInputRef = document.getElementById("commentsInput-"+i);
+    let inputComments = commentsInputRef.value;
+    if (inputComments === "") {
+        return;
+    }
+
+    books[i].comments.push({
+        username: "User69",
+        comment: inputComments
+    });
+    renderBooks();
+    commentsInputRef="";
+}
     
