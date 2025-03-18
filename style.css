@@ -79,11 +79,10 @@ header img{
 
 #likeButton img {
     height: 24px;
-    filter: invert();
     cursor: pointer;
 }
 
-.like-counter{
+#like-counter{
     color: #fc00ff;
 }
 
