@@ -1,5 +1,5 @@
-let bookIsLiked = "./img/fav.png";
-let bookIsNotLikesd = "./img/fav -liked.png";
+let bookIsNotLikesd = "./img/fav.png";
+let bookIsLiked = "./img/fav-liked.png";
 
 function init(){
     renderBooks();
@@ -11,21 +11,40 @@ function renderBooks() {
 
     for (let i = 0; i < books.length; i++) {
         contentRef.innerHTML += getBookTemplate(i);
-        
-
-        let commentsRef = document.getElementById("commentsTable-"+i);
+        let commentsRef = document.getElementById(`commentsTable-${i}`);
 
         for (let j = 0; j < books[i].comments.length; j++) {
-            commentsRef.innerHTML += getCommentTemplate(i,j);
-            
+            commentsRef.innerHTML += getCommentTemplate(i,j);    
         }
+        likeOrUnlike(i)
     }
 }
 
+function likeOrUnlike(i) {
+    let likeImageRef = document.getElementById(`likeImage${i}`);
+    if (books[i].liked === true) { 
+        likeImageRef.src = bookIsLiked;
+        
+    } else{
+        likeImageRef.src = bookIsNotLikesd;
+    }
+}
 
+function switchLike(i){
+    let likeRefImg = document.getElementById(`likeImage${i}`);
+    let likesContentRef = books[i].liked;
 
-
-
+    if (likesContentRef === true) {
+        likeRefImg = bookIsNotLikesd;
+        books[i].liked = false;  
+        books[i].likes -= 1; 
+    } else{
+        likeRefImg = bookIsLiked;
+        books[i].liked = true;
+        books[i].likes += 1;
+    }
+    renderBooks()
+}
 
 function getBookTemplate(i) {
     return/*html*/`
@@ -37,9 +56,9 @@ function getBookTemplate(i) {
             <div class="informations">
                 <div class="price-like-container">
                     <div id="bookPrice"><p>${books[i].price} €</p></div>
-                    <div id="likeButton">
-                        <p class="like-counter">${books[i].likes}</p> 
-                        <img src="./img/fav.png" alt="">
+                    <div class="like-button-container" id="likeButton${i}">
+                        <p id="likeCounter${i}">${books[i].likes}</p> 
+                        <img onclick="switchLike(${i})" id="likeImage${i}" src="" alt="">
                     </div>
                 </div>
                 <table class="infoTbale">
@@ -67,8 +86,6 @@ function getBookTemplate(i) {
                 <input id="commentsInput-${i}" type="text">
                 <img onclick="sendComment(${i})" src="./img/send.png" alt="">
             </div>
-            
-
         </div>
     `
 }
