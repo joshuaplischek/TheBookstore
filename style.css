@@ -71,18 +71,18 @@ header img{
     color: #00dbde;
 }
 
-#likeButton{
+.like-button-container{
     align-items: center;
     display: flex;
     gap: 10px;      
 }
 
-#likeButton img {
+.like-button-container img {
     height: 24px;
     cursor: pointer;
 }
 
-#like-counter{
+#likeCounter{
     color: #fc00ff;
 }
 
